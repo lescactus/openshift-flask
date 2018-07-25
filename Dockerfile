@@ -30,7 +30,7 @@ RUN chmod g+w /etc/passwd && \
 # "CMD" will be executed as www-data
 #USER www-data
 
-ENTRYPOINT ["/var/www/entrypoint.sh"]
+#ENTRYPOINT ["/var/www/entrypoint.sh"]
 
 # Run the app
 CMD ["flask", "run", "--host=0.0.0.0"]
