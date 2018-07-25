@@ -8,3 +8,5 @@ if [ `id -u` -ge 10000 ]; then
     cat /tmp/passwd > /etc/passwd
     rm /tmp/passwd
 fi
+
+exec "$@"
