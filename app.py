@@ -20,7 +20,8 @@ from flask_wtf.file import FileRequired         # FileRequired()
 from wtforms.validators import ValidationError  # ValidationError()
 import imghdr                                   # what()
 import os                                       # join(), listdir()
-
+import getpass
+import unittest.mock as mock
 
 app = Flask(__name__)
 
@@ -159,6 +160,7 @@ def thumbn_file(filename):
                                filename)
 
 if __name__ == "__main__":
+    with mock.patch.object(getpass, "getuser", return_value='default'):
     app.run()
 
 
