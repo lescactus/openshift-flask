@@ -27,7 +27,7 @@ RUN pip install -U pip && \
 RUN chmod g+w /etc/passwd
 
 # "CMD" will be executed as www-data
-USER www-data
+#USER www-data
 
 ENTRYPOINT ["/var/www/entrypoint.sh"]
 
