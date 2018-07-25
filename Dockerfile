@@ -19,7 +19,7 @@ EXPOSE 5000
 
 # Install Flask via pip,
 # Change ownership of app to www-data
-RUN pup install -U pip && \
+RUN pip install -U pip && \
     pip install -r requirements.txt && \
     chown -R www-data: /var/www
 
