@@ -22,8 +22,13 @@ EXPOSE 5000
 RUN pip install -r requirements.txt && \
     chown -R www-data: /var/www
 
+# Adjust permissions on /etc/passwd so writable by group root.
+RUN chmod g+w /etc/passwd
+
 # "CMD" will be executed as www-data
 USER www-data
+
+ENTRYPOINT["/var/www/entrypoint.sh"]
 
 # Run the app
 CMD ["flask", "run", "--host=0.0.0.0"]
