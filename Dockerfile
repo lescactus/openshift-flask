@@ -17,20 +17,22 @@ ENV FLASK_APP=app.py \
 # By default Flask use port 5000
 EXPOSE 5000
 
+RUN useradd --uid 100001 --gid 0 --shell /bin/bash -m test
+
 # Install Flask via pip,
 # Change ownership of app to www-data
 RUN pip install -U pip && \
     pip install -r requirements.txt && \
-    chown -R www-data: /var/www
+    chown -R test: /var/www
 
 # Adjust permissions on /etc/passwd so writable by group root.
 RUN chmod g+w /etc/passwd && \
     chmod 0777 /var/www/uploads /var/www/thumbnails
 
 # "CMD" will be executed as www-data
-#USER www-data
+USER test
 
-#ENTRYPOINT ["/var/www/entrypoint.sh"]
+ENTRYPOINT ["/var/www/entrypoint.sh"]
 
 # Run the app
 CMD ["flask", "run", "--host=0.0.0.0"]
