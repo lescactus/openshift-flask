@@ -1,0 +1,32 @@
+
+.hide-bullets {
+    list-style:none;
+    margin-left: -40px;
+    margin-top:20px;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+    width: 100%;
+}
+
+
+body {
+    padding-top: 20px;
+}
+
+
+.form-image {
+    padding: 15px;
+}
+
+.heart {
+    color: #db8ea2;
+}
+
+.bckgnrd-color {
+    background-color: inherit !important;
+}

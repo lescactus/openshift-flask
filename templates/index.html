@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "head.html" %}
+    
+    <body>
+        {% include "navbar.html" %}
+        <div class="container">
+            {% include "jumbotron.html" %}
+            {% include "form.html" %}
+            {% include "flash.html" %}
+            
+            <div class="row">
+                {% for img, thumb in dictionnary.items() %}
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="{{ url_for('upload_file', filename=img) }}" class="thumbnail" >
+                            <img src="{{ url_for('thumbn_file', filename=thumb) }}" alt="{{ img }}">
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="{{ url_for('static', filename='js/fileinput.min.js') }}" ></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" ></script>
+        <script src="{{ url_for('static', filename='js/bootstrap-gallery.js') }}" ></script>
+        <script>
+            // bootstrap-fileinput.js
+            // initialize form (id='image') with defaults
+            $("#image").fileinput();
+        </script>
+        <script>
+            //
+            // Get the clicked theme, and save it in a cookie
+            //
+
+            $("[id^=theme]").click(function(selector, options){
+                var theme = "";
+
+                switch(this.id) {
+                    case "theme1":
+                        theme = "flatty";
+                        break;
+                    case "theme2":
+                        theme = "solar";
+                        break;
+                    case "theme3":
+                        theme = "darkly";
+                        break;
+                    case "theme4":
+                        theme = "superhero";
+                        break;
+
+                    // Should never go here
+                    default:
+                        theme = "flatty";
+                } 
+
+                document.cookie = "theme=" + theme;
+                location.reload();
+            });
+        </script>
+    </body>
+</html>
