@@ -24,7 +24,8 @@ RUN pip install -U pip && \
     chown -R www-data: /var/www
 
 # Adjust permissions on /etc/passwd so writable by group root.
-RUN chmod g+w /etc/passwd
+RUN chmod g+w /etc/passwd && \
+    chmod 0777 /var/www/uploads /var/www/thumbnails
 
 # "CMD" will be executed as www-data
 #USER www-data
