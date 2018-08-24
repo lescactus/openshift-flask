@@ -164,8 +164,12 @@ if __name__ == "__main__":
 # Return true if the type is truly an image,  
 # and not a random file with an image  
 # extension 
-def check_filetype(file): 
-    return imghdr.what(file) in app.config['ALLOWED_EXTENSIONS'] 
+def check_filetype(file):
+    # If file is not a directory
+    if not os.path.isdir(file):
+      return imghdr.what(file) in app.config['ALLOWED_EXTENSIONS']
+    else:
+      return false
 
 
 # Add an incremental counter before the '.extension'
