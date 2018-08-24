@@ -169,7 +169,7 @@ def check_filetype(file):
     if not os.path.isdir(file):
       return imghdr.what(file) in app.config['ALLOWED_EXTENSIONS']
     else:
-      return false
+      return False
 
 
 # Add an incremental counter before the '.extension'
