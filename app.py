@@ -157,8 +157,6 @@ def thumbn_file(filename):
     return send_from_directory("thumbnails/",
                                filename)
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080)
 
 
 # Return true if the type is truly an image,  
@@ -203,3 +201,7 @@ def create_thumbnail(filename):
         img.save(thumbnail, img.format)
 
 
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=8080)
