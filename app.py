@@ -158,7 +158,7 @@ def thumbn_file(filename):
                                filename)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', port=8080)
 
 
 # Return true if the type is truly an image,  
