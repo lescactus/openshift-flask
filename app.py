@@ -26,8 +26,9 @@ app = Flask(__name__)
 # App config
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024                         # 16Mb max per upload
 app.config['ALLOWED_EXTENSIONS'] = ('bmp', 'gif', 'png', 'jpg', 'jpeg')     # Allowed file extensions to be uploaded
-app.config['UPLOAD_DIR'] = 'uploads/'                                       # Upload directory
-app.config['THUMBN_DIR'] = 'thumbnails/'                                    # Thumbnails directory
+app.config['UPLOAD_DIR'] = os.environ['_APP_UPLOADS_DIR']                   # Upload directory
+#app.config['UPLOAD_DIR'] = 'uploads/'                                      # Upload directory
+app.config['THUMBN_DIR'] = os.environ['_APP_THUMBNAILS_DIR']    
 app.config['THUMBN_SIZE'] = [300, 300]                                      # Thumbnails size in px
 app.secret_key = '1RK+3588rZaM081C/c6fhTIvNOzb1L9K9nP0ojX3O7b7wJjAz5/I7EICH3m+/530/sW7iotaUK4R'
 
